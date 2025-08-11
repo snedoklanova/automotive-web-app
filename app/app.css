@@ -12,4 +12,8 @@ body {
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+
+  margin: 0 auto;
+  background-color: aqua;
+  max-width: 80rem;
 }
