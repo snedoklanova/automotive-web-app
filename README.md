@@ -32,9 +32,9 @@ This is the web app built with
 - Vitest
 
 ### Pages
-- /
+- `/`
   - A index page to showing a list of vehicles with sorting and searching function on the top
 
-- /{:vehicleId}
+- `/{:vehicleId}`
   - A page showing specific vehicle with finance calculator aside
   - Pay monthly result will change accordingly by selecting different terms
