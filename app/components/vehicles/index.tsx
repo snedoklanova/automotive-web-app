@@ -65,7 +65,7 @@ export const Vehicles = ({ loaderData }: { loaderData: VehiclesProps }) => {
     <div data-testid="vehicles-container">
       <input
         name="input-field"
-        placeholder="Please type..."
+        placeholder="Search..."
         type="text"
         className="border-2 border-gray-300 rounded-md m-4 p-2 w-3xs"
         onChange={inputOnChange}
@@ -79,7 +79,7 @@ export const Vehicles = ({ loaderData }: { loaderData: VehiclesProps }) => {
         value={sortOption}
         aria-label="Sort vehicles"
       >
-        <option value="">--Please choose an option--</option>
+        <option value="">Sort by:</option>
         <option value="priceAscending">Price: Low to High</option>
         <option value="priceDescending">Price: High to Low</option>
         <option value="yearAscending">Year: Low to High</option>
