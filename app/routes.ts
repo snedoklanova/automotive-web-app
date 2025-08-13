@@ -7,8 +7,6 @@ import {
 } from "@react-router/dev/routes";
 
 export default [
-  ...prefix("vehicles", [
-    index("routes/vehicles.tsx"),
-    route(":vehicleId", "routes/vehicle.tsx"),
-  ]),
+  index("routes/vehicles.tsx"),
+  route(":vehicleId", "routes/vehicle.tsx"),
 ] satisfies RouteConfig;

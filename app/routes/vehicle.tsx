@@ -23,14 +23,14 @@ export function HydrateFallback() {
 const VehiclePage = ({ loaderData }: { loaderData: VehicleProps }) => {
   const financeQuoteData = {
     onTheRoadPrice: loaderData.price,
-    totalDeposit: 1000,
-    totalAmountOfCredit: loaderData.price - 1000,
+    totalDeposit: loaderData.price / 10,
+    totalAmountOfCredit: loaderData.price - (loaderData.price / 10),
     numberOfMonthlyPayments: 60,
-    monthlyPayment: (loaderData.price - 1000) / 60,
+    monthlyPayment: (loaderData.price - (loaderData.price / 10)) / 60,
   } as FinanceQuoteProps;
 
   return (
-    <div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 m-6">
       <Vehicle {...loaderData} />
       <FinanceQuote {...financeQuoteData} />
     </div>

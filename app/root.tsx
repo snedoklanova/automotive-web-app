@@ -33,6 +33,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <h1 className="text-3xl font-bold text-center p-6">
+          Automotive web app
+        </h1>
         {children}
         <ScrollRestoration />
         <Scripts />

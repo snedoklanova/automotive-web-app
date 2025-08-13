@@ -1,4 +1,4 @@
-
+import { useEffect, useState } from "react";
 
 export interface FinanceQuoteProps {
   onTheRoadPrice: number; // The Vehicle price.
@@ -10,14 +10,60 @@ export interface FinanceQuoteProps {
 
 const FinanceQuote = (props: FinanceQuoteProps) => {
   const { onTheRoadPrice, totalDeposit, totalAmountOfCredit, numberOfMonthlyPayments, monthlyPayment } = props;
+  const [termOption, setTermOption] = useState(numberOfMonthlyPayments);
+  const [monthlyPay, setMonthlyPay] = useState(monthlyPayment);
+
+  const selectOnChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setTermOption(Number(event.target.value));
+  };
+
+  useEffect(() => {
+    switch (termOption) {
+      case 12:
+        setMonthlyPay(totalAmountOfCredit / 12);
+        break;
+      case 24:
+        setMonthlyPay(totalAmountOfCredit / 24);
+        break;
+      case 36:
+        setMonthlyPay(totalAmountOfCredit / 36);
+        break;
+      case 48:
+        setMonthlyPay(totalAmountOfCredit / 48);
+        break;
+      case 60:
+        setMonthlyPay(totalAmountOfCredit / 60);
+        break;
+    }
+
+  }, [termOption]);
 
   return (
-    <div className="vehicle-container">
-      <h2>Finance Quote</h2>
-      <p>Total Deposit: {totalDeposit}</p>
-      <p>Total Amount of Credit: {totalAmountOfCredit}</p>
-      <p>Number of Monthly Payments: {numberOfMonthlyPayments}</p>
-      <p>Monthly Payment: {monthlyPayment}</p>
+    <div
+      className="m-4 p-6 bg-gray-100 rounded-md"
+      data-testid="finance-quote-container"
+    >
+      <form>
+        <h2 className="text-lg font-bold text-gray-900 mb-4">Finance Quote</h2>
+        <p>On The Road Price: £{onTheRoadPrice}</p>
+        <p>Total Deposit: £{totalDeposit} (10%)</p>
+        <p>Total Amount of Credit: £{totalAmountOfCredit}</p>
+        <p>Term:</p>
+        <select
+          name="sort"
+          id="sort-select"
+          className="border-2 border-gray-300 rounded-md mb-6 p-2 w-3xs"
+          onChange={selectOnChange}
+          value={termOption}
+        >
+          <option value={60}>60</option>
+          <option value={48}>48</option>
+          <option value={36}>36</option>
+          <option value={24}>24</option>
+          <option value={12}>12</option>
+        </select>
+        <p>Monthly Payment: £{monthlyPay.toFixed(2)}</p>
+      </form>
     </div>
   );
 };

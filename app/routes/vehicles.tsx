@@ -9,7 +9,11 @@ export async function loader() {
 }
 
 const VehiclesPage = ({ loaderData }: { loaderData: VehiclesProps }) => {
-  return <Vehicles loaderData={loaderData} />;
+  return (
+    <div className="m-6">
+      <Vehicles loaderData={loaderData} />
+    </div>
+  );
 }
 
 export default VehiclesPage;
