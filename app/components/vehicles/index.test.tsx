@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import userEvent from '@testing-library/user-event'
 
-import Vehicles from ".";
+import { Vehicles } from ".";
 import data from "../../data/vehicles.json";
 
 describe("<Vehicles />", () => {

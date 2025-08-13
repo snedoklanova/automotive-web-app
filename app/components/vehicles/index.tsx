@@ -6,7 +6,7 @@ export interface VehiclesProps {
   vehicles: VehicleProps[];
 }
 
-const Vehicles = ({ loaderData }: { loaderData: VehiclesProps }) => {
+export const Vehicles = ({ loaderData }: { loaderData: VehiclesProps }) => {
   const { vehicles } = loaderData;
   const [vehiclesList, setVehiclesList] = useState<VehicleProps[]>(vehicles);
   const [searchTerm, setSearchTerm] = useState('');
@@ -69,6 +69,7 @@ const Vehicles = ({ loaderData }: { loaderData: VehiclesProps }) => {
         type="text"
         className="border-2 border-gray-300 rounded-md m-4 p-2 w-3xs"
         onChange={inputOnChange}
+        aria-label="Search vehicles"
       />
       <select
         name="sort"
@@ -76,6 +77,7 @@ const Vehicles = ({ loaderData }: { loaderData: VehiclesProps }) => {
         className="border-2 border-gray-300 rounded-md m-4 p-2 w-3xs"
         onChange={selectOnChange}
         value={sortOption}
+        aria-label="Sort vehicles"
       >
         <option value="">--Please choose an option--</option>
         <option value="priceAscending">Price: Low to High</option>
@@ -104,5 +106,3 @@ const Vehicles = ({ loaderData }: { loaderData: VehiclesProps }) => {
     </div>
   );
 };
-
-export default Vehicles;

@@ -1,5 +1,5 @@
 import type { Route } from "./+types/vehicles";
-import Vehicles, { type VehiclesProps } from "../components/vehicles";
+import { Vehicles, type VehiclesProps } from "../components/vehicles";
 import data from "../data/vehicles.json";
 
 export async function loader() {

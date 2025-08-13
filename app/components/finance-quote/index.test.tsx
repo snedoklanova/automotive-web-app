@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import userEvent from '@testing-library/user-event'
 
-import FinanceQuote from ".";
+import { FinanceQuote } from ".";
 import data from "../../data/vehicles.json";
 
 const financeQuoteData = {

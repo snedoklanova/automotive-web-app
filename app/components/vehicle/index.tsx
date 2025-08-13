@@ -8,7 +8,7 @@ export interface VehicleProps {
   id: string;
 }
 
-const Vehicle = (loaderData: VehicleProps) => {
+export const Vehicle = (loaderData: VehicleProps) => {
   const { make, model, year, price, mileage, colour } = loaderData;
 
   return (
@@ -25,5 +25,3 @@ const Vehicle = (loaderData: VehicleProps) => {
     </div>
   );
 };
-
-export default Vehicle;

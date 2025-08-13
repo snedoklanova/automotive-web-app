@@ -8,7 +8,7 @@ export interface FinanceQuoteProps {
   monthlyPayment: number; // The total amount of credit divided by the term.
 }
 
-const FinanceQuote = (props: FinanceQuoteProps) => {
+export const FinanceQuote = (props: FinanceQuoteProps) => {
   const { onTheRoadPrice, totalDeposit, totalAmountOfCredit, numberOfMonthlyPayments, monthlyPayment } = props;
   const [termOption, setTermOption] = useState(numberOfMonthlyPayments);
   const [monthlyPay, setMonthlyPay] = useState(monthlyPayment);
@@ -50,11 +50,12 @@ const FinanceQuote = (props: FinanceQuoteProps) => {
         <p>Total Amount of Credit: £{totalAmountOfCredit}</p>
         <p>Term:</p>
         <select
-          name="sort"
-          id="sort-select"
+          name="term"
+          id="term-select"
           className="border-2 border-gray-300 rounded-md mb-6 p-2 w-3xs"
           onChange={selectOnChange}
           value={termOption}
+          aria-label="Change term"
         >
           <option value={60}>60</option>
           <option value={48}>48</option>
@@ -67,5 +68,3 @@ const FinanceQuote = (props: FinanceQuoteProps) => {
     </div>
   );
 };
-
-export default FinanceQuote;

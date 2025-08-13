@@ -1,7 +1,7 @@
 import type { Route } from "./+types/vehicle";
 
-import FinanceQuote, { type FinanceQuoteProps } from "../components/finance-quote";
-import Vehicle, { type VehicleProps } from "../components/vehicle";
+import { FinanceQuote, type FinanceQuoteProps } from "../components/finance-quote";
+import { Vehicle, type VehicleProps } from "../components/vehicle";
 
 import data from "../data/vehicles.json";
 
