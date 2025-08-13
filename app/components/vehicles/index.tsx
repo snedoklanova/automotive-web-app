@@ -95,10 +95,10 @@ export const Vehicles = ({ loaderData }: { loaderData: VehiclesProps }) => {
           <li className="rounded-md m-4 p-4 bg-gray-100 hover:bg-gray-200" key={vehicle.id} data-testid="vehicle-card">
             <a className="" href={`/${vehicle.id}`}>
               <h2 className="text-lg font-bold text-gray-900" data-testid="vehicle-card-title">{vehicle.make} {vehicle.model}</h2>
-              <p>Year: {vehicle.year}</p>
-              <p>Price: £{vehicle.price}</p>
-              <p>Mileage: {vehicle.mileage} miles</p>
-              <p>Colour: {vehicle.colour}</p>
+              <p className="text-gray-900">Year: {vehicle.year}</p>
+              <p className="text-gray-900">Price: £{vehicle.price}</p>
+              <p className="text-gray-900">Mileage: {vehicle.mileage} miles</p>
+              <p className="text-gray-900">Colour: {vehicle.colour}</p>
             </a>
           </li>
         )) : <li>No vehicles found</li>}

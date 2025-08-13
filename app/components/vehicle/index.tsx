@@ -18,10 +18,10 @@ export const Vehicle = (loaderData: VehicleProps) => {
     >
       <h2 className="text-lg font-bold text-gray-900 mb-4">Vehicle Details</h2>
       <h4 className="text-md font-bold text-gray-900">{make} {model}</h4>
-      <p>Year: {year}</p>
-      <p>Price: £{price}</p>
-      <p>Mileage: {mileage} miles</p>
-      <p>Colour: {colour}</p>
+      <p className="text-gray-900">Year: {year}</p>
+      <p className="text-gray-900">Price: £{price}</p>
+      <p className="text-gray-900">Mileage: {mileage} miles</p>
+      <p className="text-gray-900">Colour: {colour}</p>
     </div>
   );
 };

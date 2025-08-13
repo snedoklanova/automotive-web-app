@@ -45,14 +45,14 @@ export const FinanceQuote = (props: FinanceQuoteProps) => {
     >
       <form>
         <h2 className="text-lg font-bold text-gray-900 mb-4">Finance Quote</h2>
-        <p>On The Road Price: £{onTheRoadPrice}</p>
-        <p>Total Deposit: £{totalDeposit} (10%)</p>
-        <p>Total Amount of Credit: £{totalAmountOfCredit}</p>
-        <p>Term:</p>
+        <p className="text-gray-900">On The Road Price: £{onTheRoadPrice}</p>
+        <p className="text-gray-900">Total Deposit: £{totalDeposit} (10%)</p>
+        <p className="text-gray-900">Total Amount of Credit: £{totalAmountOfCredit}</p>
+        <p className="text-gray-900">Term:</p>
         <select
           name="term"
           id="term-select"
-          className="border-2 border-gray-300 rounded-md mb-6 p-2 w-3xs"
+          className="border-2 border-gray-300 rounded-md mb-6 p-2 w-3xs text-gray-900"
           onChange={selectOnChange}
           value={termOption}
           aria-label="Change term"
@@ -63,7 +63,7 @@ export const FinanceQuote = (props: FinanceQuoteProps) => {
           <option value={24}>24</option>
           <option value={12}>12</option>
         </select>
-        <p>Monthly Payment: £{monthlyPay.toFixed(2)}</p>
+        <p className="text-gray-900">Monthly Payment: £{monthlyPay.toFixed(2)}</p>
       </form>
     </div>
   );
