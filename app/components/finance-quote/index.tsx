@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { TermSelect } from "./term-select";
+
 export interface FinanceQuoteProps {
   onTheRoadPrice: number; // The Vehicle price.
   totalDeposit: number; // The provided Deposit amount.
@@ -49,20 +51,7 @@ export const FinanceQuote = (props: FinanceQuoteProps) => {
         <p className="text-gray-900">Total Deposit: £{totalDeposit} (10%)</p>
         <p className="text-gray-900">Total Amount of Credit: £{totalAmountOfCredit}</p>
         <p className="text-gray-900">Term:</p>
-        <select
-          name="term"
-          id="term-select"
-          className="border-2 border-gray-300 rounded-md mb-6 p-2 w-3xs text-gray-900"
-          onChange={selectOnChange}
-          value={termOption}
-          aria-label="Change term"
-        >
-          <option value={60}>60</option>
-          <option value={48}>48</option>
-          <option value={36}>36</option>
-          <option value={24}>24</option>
-          <option value={12}>12</option>
-        </select>
+        <TermSelect termOption={termOption} selectOnChange={selectOnChange} />
         <p className="text-gray-900">Monthly Payment: £{monthlyPay.toFixed(2)}</p>
       </form>
     </div>

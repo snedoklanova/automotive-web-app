@@ -1,33 +1,24 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, test } from "vitest";
-import userEvent from '@testing-library/user-event'
+import { describe, expect, test, vi } from "vitest";
+import userEvent from "@testing-library/user-event";
 
 import { Vehicles } from ".";
 import data from "../../data/vehicles.json";
 
 describe("<Vehicles />", () => {
-  test("should render vehicles list", () => {
+  test("should render properly", () => {
     render(<Vehicles loaderData={{ vehicles: [...data] }} />);
 
     expect(screen.getByTestId("vehicles-container")).toBeInTheDocument();
     expect(screen.getByRole("textbox")).toBeInTheDocument();
-    expect(screen.getByTestId("vehicles-list")).toBeInTheDocument();
-    expect(screen.getAllByTestId("vehicle-card")).toHaveLength(data.length);
-  });
-
-  test("should render vehicles list", () => {
-    render(<Vehicles loaderData={{ vehicles: [...data] }} />);
-
-    expect(screen.getByTestId("vehicles-container")).toBeInTheDocument();
-    expect(screen.getByRole("textbox")).toBeInTheDocument();
-    expect(screen.getByTestId("vehicles-list")).toBeInTheDocument();
+    expect((screen.getByRole('option', { name: 'Sort by:' }) as HTMLOptionElement).selected).toBeTruthy();
     expect(screen.getAllByTestId("vehicle-card")).toHaveLength(data.length);
   });
 
   test("should render sorting results by selecting an option", async () => {
     render(<Vehicles loaderData={{ vehicles: [...data] }} />);
 
-    expect((screen.getByRole('option', { name: '--Please choose an option--' }) as HTMLOptionElement).selected).toBeTruthy();
+    expect((screen.getByRole('option', { name: 'Sort by:' }) as HTMLOptionElement).selected).toBeTruthy();
 
     await userEvent.selectOptions(
       screen.getByRole('combobox'),
