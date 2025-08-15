@@ -3,14 +3,13 @@ import type { Route } from "./+types/vehicle";
 import { FinanceQuote, type FinanceQuoteProps } from "../components/finance-quote";
 import { Vehicle, type VehicleProps } from "../components/vehicle";
 
-import data from "../data/vehicles.json";
-
 export async function clientLoader({
   params,
 }: Route.ClientLoaderArgs) {
-  const vehicle = data.find((vehicle) => vehicle.id === params.vehicleId);
+  const response = await fetch(`http://localhost:5173/api/vehicles/${params.vehicleId}`);
+  const vehicle = await response.json();
 
-  if (!vehicle) throw new Error("Vehicle not found");
+  if (vehicle.error) throw new Error(`Vehicle ${params.vehicleId} not found`);
 
   return vehicle;
 }

@@ -3,7 +3,7 @@ import { describe, expect, test, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 
 import { Vehicles } from ".";
-import data from "../../data/vehicles.json";
+import data from "../../../data/vehicles.json";
 
 describe("<Vehicles />", () => {
   test("should render properly", () => {
@@ -21,7 +21,7 @@ describe("<Vehicles />", () => {
     expect((screen.getByRole('option', { name: 'Sort by:' }) as HTMLOptionElement).selected).toBeTruthy();
 
     await userEvent.selectOptions(
-      screen.getByRole('combobox'),
+      screen.getByRole('combobox', { name: 'Sort vehicles' }),
       screen.getByRole('option', { name: 'Price: Low to High' }),
     )
 

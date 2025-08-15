@@ -3,7 +3,7 @@ import { describe, expect, test } from "vitest";
 import userEvent from '@testing-library/user-event'
 
 import { FinanceQuote } from ".";
-import data from "../../data/vehicles.json";
+import data from "../../../data/vehicles.json";
 
 const financeQuoteData = {
   onTheRoadPrice: data[0].price,

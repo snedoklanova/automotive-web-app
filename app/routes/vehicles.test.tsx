@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 
 import VehiclesPage from "./vehicles";
-import data from "../data/vehicles.json";
+import data from "../../data/vehicles.json";
 
 
 vi.mock('../components/vehicles', () => ({
