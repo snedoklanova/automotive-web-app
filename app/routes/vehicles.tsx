@@ -4,11 +4,13 @@ import { Vehicles, type VehiclesProps } from "../components/vehicles";
 
 export async function loader() {
   const response = await fetch(`http://localhost:5173/api/vehicles`);
-  const vehicles = await response.json();
+  const data = await response.json();
 
-  if (Object.keys(vehicles).length === 0) throw new Error("No Vehicles list found");
+  if (Object.keys(data.vehicles).length === 0) {
+    return new Error("No Vehicles list found");
+  };
 
-  return { ...vehicles };
+  return { ...data };
 }
 
 const VehiclesPage = ({ loaderData }: { loaderData: VehiclesProps }) => {
